@@ -1,0 +1,11 @@
+<h1>Bookings#show</h1>
+<p>Find me in app/views/bookings/show.html.erb</p>
+
+
+<%= @booking.date %>
+<%= @booking.duration %>
+
+
+<%= link_to "Edit", ?????????booking_edit_path %>
+<%= link_to "Delete", @booking, method: :delete,  data: { confirm: 'Delete?' }%>
+
