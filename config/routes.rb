@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :bathroom do
-    resources :booking, only:[:new, :create]
+  resources :bathrooms do
+    resources :bookings, only:[:new, :create]
     get "/bookings", to: "dashboard#wc_bookings"
   end
   
-  resources :booking, only:[:index, :show, :destroy]
+  resources :bookings, only:[:index, :show, :destroy]
   
   get "/owner_bookings", to: "dashboard#owner_bookings"
   get "/users/:id", to: "dashboard#show"
