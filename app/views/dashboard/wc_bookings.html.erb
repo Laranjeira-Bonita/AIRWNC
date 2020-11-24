@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>List of bookings for bathroom <%= @bathroom.id %></h1>
+  <ul>
+    <% @wc_bookings.each do |booking| %>
+      <li><%= booking.client.first_name %> | <%= booking.date %> | <%= booking.duration %> minutes</li>
+    <% end %>
+ </ul>
+</div>
