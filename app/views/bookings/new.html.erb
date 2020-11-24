@@ -3,7 +3,7 @@
 
 
 
-<%= simple_form_for(@bathroom, @client, @booking) do |f| %>
+<%= simple_form_for [@bathroom, @booking] do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 

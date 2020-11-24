@@ -1,18 +1,18 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where('client_id = params[:booking][:client_id]')
+    @bookings = Booking.where( client: current_user )
   end
 
   def new
     @booking = Booking.new
     @bathroom = Bathroom.find(params[:bathroom_id])
-    @client = Bathroom.find(params[:client_id])
+   
   end
   
   def create
     @bathroom = Bathroom.find(params[:bathroom_id])
     @booking = Booking.new(booking_params)    
-    @booking.client = User.find(params[:booking][:client_id])
+    @booking.client = current_user
     @booking.bathroom = @bathroom
     if @booking.save
       redirect_to bathroom_path(@bathroom), notice: 'Ordered successfully.'
@@ -40,9 +40,10 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    redirect_to bookings_path
   end
   private
   def booking_params
-    params.require(:booking).permit(:date, :duration, :bathroom_id, :client_id)
+    params.require(:booking).permit(:date, :duration)
   end
 end
