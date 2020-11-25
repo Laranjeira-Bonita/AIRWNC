@@ -13,7 +13,6 @@ class DashboardController < ApplicationController
   end
 
   def show
-    # action to display user profile
     @user = current_user
   end
 
