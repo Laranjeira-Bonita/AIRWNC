@@ -1,10 +1,29 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="bookings-title">
+<h1>Your Booking No.<%= @booking.id%></h1>
+<p>Find me in app/views/bookings/index.html.erb</p>
+</div>
 
 
-<%= @booking.date %>
-<%= @booking.duration %>
-
-
-<%= link_to "Delete", @booking, method: :delete,  data: { confirm: 'Delete?' }%>
-
+<div class="booking-card">
+  
+    <div class='booking-image'>
+      <%= image_tag 'https://assets.stickpng.com/thumbs/5ecec78673e4440004f09e77.png' %>
+    </div>
+    <div class="container">
+      <div class="booking-detail">
+      <div>Date: </div>
+      <div><%= @booking.date.to_s.first(10) %></div>
+      </div>
+      <div class="booking-detail">
+        <div>Check-in: </div>
+        <div><%= @booking.date.to_s[11..18] %></div>
+      </div>
+      <div class="booking-detail">
+        <div>Duration: </div>
+        <div><%= @booking.duration %> min</div>
+      </div>
+      <div class="booking-detail">
+        <div><%= link_to 'Edit', booking_path(@booking), data: { confirm: 'You can cancel the order and make another one or call 911 to ask tecnic support' } %></div>
+        <div><%= link_to 'Delete', @booking, method: :delete, data: { confirm: 'Delete?' } %></div>
+      </div>
+    </div>
