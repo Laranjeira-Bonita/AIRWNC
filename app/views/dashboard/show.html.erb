@@ -1,7 +1,33 @@
-<div class="container">
-	<h1>Profile page of <%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %></h1>
-	<p><%= @user.email %></p>
-	<p> Has already rented <%= @user.rented_bathrooms.count %> bathrooms</p>
-	<p> Owns <%= @user.bathrooms.count %> bathrooms. They were rented <%= @user.deals.count %> times</p>
+<div class="container d-flex justify-content-center align-items-center flex-column">
+	<h1>My profile</h1>
+	<div class="profile-pic">
+		<%= cl_image_tag @user.photo.key, class: "avatar-large"%>
+	</div>
+	<div class="user-infos">
+		<p class="profile-name">
+			<strong><%= @user.first_name.downcase.capitalize %> 
+			<%= @user.last_name.downcase.capitalize %></strong>
+			<%= link_to edit_user_registration_path, class: "edit-profile-btn" do %>
+				<i class='far fa-edit'></i>
+			<% end %>
+		</p>
 
+		<p class="profile-email"><%= @user.email %></p>
+		<p class="d-flex justify-content-center"><%= link_to "Add new offer", new_bathroom_path, class:"btn btn-ghost" %></p>
+	</div>
+	<div class="profile-numbers d-flex justify-content-around">
+		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border">
+			<p class="profile-numbers-p profile-numbers-bold"><%= @user.rented_bathrooms.count %></p>
+			<p class="profile-numbers-p profile-numbers-description">Bookings</p>
+		</div>
+		<div class="profile-numbers-container bathrooms-owned profile-numbers-div-border">
+			<p class="profile-numbers-p profile-numbers-bold"><%= @user.bathrooms.count %></p>
+			<p class="profile-numbers-p profile-numbers-description">Bathrooms owned</p>
+		</div>
+		<div class="profile-numbers-container deals-closed">
+			<p class="profile-numbers-p profile-numbers-bold"><%= @user.deals.count %></p>
+			<p class="profile-numbers-p profile-numbers-description">Bathrooms rented</p>
+		</div>
+	</div>
+	
 </div>
