@@ -1,5 +1,23 @@
-<h1>Bathroom show</h1>
+<h1 class="show-title">Bathroom show</h1>
 
-<%= @bathroom.description %>
-<%= @bathroom.address %>
-<%= @bathroom.price %>
+<div class="show-wrapper">
+  <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
+  <div class="show-details">
+    <div class="show-description">
+      <p>Bathroom description:</p>
+      <%= @bathroom.description %>
+    </div>
+    <div class="show-address">
+      <p>Address:</p>
+      <%= @bathroom.address %>
+    </div>
+    <div class="show-price">
+      <p>Price:</p>
+      <% if @bathroom.price  %>
+      <%= "U" + number_to_currency(@bathroom.price) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Return to bathrooms list", bathrooms_path %>

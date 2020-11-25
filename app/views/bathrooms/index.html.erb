@@ -1,8 +1,34 @@
-<h1>Bathrooms:</h1>
-<% @bathrooms.each do |bathroom| %>
+<h1 class="index-title">Bathrooms:</h1>
+<br>
 
-  <%= bathroom.description %>
-  <%= bathroom.address %>
-  <%= bathroom.price %>
-  <br>
-<% end %>
+<div class="bathroom-wrapper">
+  <% @bathrooms.each do |bathroom| %>
+  <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>  
+    <div class="bathroom-card col-6 col-lg-12">
+      <div class="bathroom-photo">
+      </div>
+      <div class="bathroom-details">
+        <div class="bathroom-description">
+          <p class="bath-desc">
+            <%= bathroom.description %>
+          </p>
+          <p class="line-div">________________________________________________</p>
+          <br>
+        </div>
+        <div class="bathroom-address">
+          <p>Address:</p>
+          <%= bathroom.address %>
+        </div>
+        <br>
+        <br>
+        <div class="bathroom-price">
+          <div class="price">
+            <p>Price:</p>
+            <p><%= "U" + number_to_currency(bathroom.price.to_f) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
