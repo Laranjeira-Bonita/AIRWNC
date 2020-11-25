@@ -4,7 +4,7 @@
   <% if @bathroom.photos.empty? %>
     <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
   <% else %>
-    <%= cl_image_tag @bathroom.photos.first.key, class: "bathroom-profile" %>
+    <%= cl_image_tag @bathroom.photos.last.key, class: "bathroom-profile", height: 240, width: 270 %>
   <% end %>
   <div class="show-details">
     <div class="show-description">
