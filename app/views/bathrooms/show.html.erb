@@ -1,7 +1,11 @@
 <h1 class="show-title">Bathroom show</h1>
 
 <div class="show-wrapper">
-  <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
+   <% if @bathroom.photos.empty? %>
+    <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
+  <% else %>
+    <%= cl_image_tag @bathroom.photos.last.key, class: "bathroom-photo", height: 240, width: 270 %>
+  <% end %>
   <div class="show-details">
     <div class="show-description">
       <p>Bathroom description:</p>
