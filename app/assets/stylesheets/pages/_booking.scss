@@ -37,6 +37,9 @@
     margin-left: 20vw;
 }
 
+<<<<<<< HEAD
+
+=======
 .booking-card .btn {
     width: 5vw;
 }
@@ -48,6 +51,7 @@
        text-decoration: none;
    }
 }
+>>>>>>> master
 
 // booking- new css
 
@@ -57,12 +61,22 @@
 }
 
 .new-booking-form .form-group {
+<<<<<<< HEAD
+  padding-bottom: 10vh;
+  
+}
+
+
+.new-booking-form .form-control{
+    height: 7vh;
+=======
   padding-top: 10vh;
 }
 
 .new-booking-form .form-control{
     height: 7vh;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+>>>>>>> master
 }
 
 .new-booking-form label {
@@ -72,9 +86,16 @@
 }
 
 #new-booking-submit-button {
+<<<<<<< HEAD
+  background-color: yellowgreen;
+  margin-top: 5vh;
+  height: 7vh;
+}
+=======
   background-color: #17C3B2;
   margin-top: 15vh;
   height: 7vh;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+>>>>>>> master

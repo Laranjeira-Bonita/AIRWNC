@@ -1,7 +1,7 @@
 .banner {
 background-size: cover;
 background-position: center;
-padding: 150px 0;
+padding: 200px 0;
 }
 
 .banner h1 {
@@ -17,4 +17,14 @@ padding: 150px 0;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.link-home {
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+.link-home:hover {
+  text-decoration: none;
 }
