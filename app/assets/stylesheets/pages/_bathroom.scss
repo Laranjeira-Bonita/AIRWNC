@@ -129,3 +129,21 @@
 .bath-form {
   text-align: center;
 }
+
+.btn-book-this {
+  position: absolute;
+  top: 16%;
+  right: 12%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #17c3b248;
+  transition: 0.6s;
+}
+
+.btn-book-this:hover {
+  background-color: #17c3b2b2;
+  transition: 0.6s;
+}
