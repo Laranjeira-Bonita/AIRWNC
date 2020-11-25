@@ -4,8 +4,16 @@
 		<%= cl_image_tag @user.photo.key, class: "avatar-large"%>
 	</div>
 	<div class="user-infos">
-		<p class="profile-name"><strong><%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %></strong></p>
+		<p class="profile-name">
+			<strong><%= @user.first_name.downcase.capitalize %> 
+			<%= @user.last_name.downcase.capitalize %></strong>
+			<%= link_to edit_user_registration_path, class: "edit-profile-btn" do %>
+				<i class='far fa-edit'></i>
+			<% end %>
+		</p>
+
 		<p class="profile-email"><%= @user.email %></p>
+		<p class="d-flex justify-content-center"><%= link_to "Add new offer", new_bathroom_path, class:"btn btn-ghost" %></p>
 	</div>
 	<div class="profile-numbers d-flex justify-content-around">
 		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border">
