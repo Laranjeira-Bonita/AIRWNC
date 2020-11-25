@@ -1,6 +1,6 @@
 class BathroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :find_bathroom, only: [:edit, :update, :show, :destroy]
+  before_action :find_bathroom, only: %i[edit update show destroy]
 
   def index
     @bathrooms = Bathroom.all
@@ -39,7 +39,7 @@ class BathroomsController < ApplicationController
   private
 
   def bathroom_params
-    params.require(:bathroom).permit(:description, :address, :price, :user_id)
+    params.require(:bathroom).permit(:description, :address, :price, :user_id, photos: [])
   end
 
   def find_bathroom
