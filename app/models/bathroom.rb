@@ -1,4 +1,5 @@
 class Bathroom < ApplicationRecord
+  has_many_attached :photos
   has_many :bookings
   has_many :clients, through: :bookings
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'

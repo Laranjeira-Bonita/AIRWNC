@@ -6,6 +6,7 @@
         <%= f.input :description %>
         <%= f.input :address %>
         <%= f.input :price %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Submit", class: "btn-form" %>
       <% end %>
     </div>
