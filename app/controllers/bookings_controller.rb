@@ -1,17 +1,16 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where( client: current_user )
+    @bookings = Booking.where(client: current_user)
   end
 
   def new
     @booking = Booking.new
     @bathroom = Bathroom.find(params[:bathroom_id])
-   
   end
-  
+
   def create
     @bathroom = Bathroom.find(params[:bathroom_id])
-    @booking = Booking.new(booking_params)    
+    @booking = Booking.new(booking_params)
     @booking.client = current_user
     @booking.bathroom = @bathroom
     if @booking.save
@@ -42,7 +41,9 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
+
   private
+
   def booking_params
     params.require(:booking).permit(:date, :duration)
   end
