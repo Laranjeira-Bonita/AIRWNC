@@ -1,17 +1,13 @@
 <div class="bookings-title">
 <h1>All Your Bookings</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
 </div>
-
 
 
 <% @bookings.each do |booking| %>
   <div class="booking-card">
-  
     <div class='booking-image'>
-      <%= image_tag 'https://assets.stickpng.com/thumbs/5ecec78673e4440004f09e77.png' %>
     </div>
-    <div class="container">
+    <div class="container booking-details">
       <div class="booking-detail">
       <div>Date: </div>
       <div><%= booking.date.to_s.first(10) %></div>
@@ -25,16 +21,9 @@
         <div><%= booking.duration %> min</div>
       </div>
       <div class="booking-detail">
-        <div><%= link_to 'details', booking_path(booking) %></div>
-        <div><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Delete?' } %></div>
+        <div type="button" class="btn btn-success"><%= link_to 'details', booking_path(booking) %></div>
+        <div type="button" class="btn btn-success"><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Delete?' } %></div>
       </div>
-      <!-- <div class="card-trip">Date: <%= booking.date.to_s.first(10) %></div>
-      <div class="card-trip">Check-in: <%= booking.date.to_s[11..18] %></div>
-      <div class="card-trip">Duration: <%= booking.duration %> min</div>
-      <div>
-        <span><%= link_to 'details', booking_path(booking) %></span>
-        <span><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Delete?' } %></span>
-      </div> -->
     </div>
   </div>
 <% end %>
