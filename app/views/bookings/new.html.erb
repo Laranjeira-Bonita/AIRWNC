@@ -1,8 +1,9 @@
+
+
+
+<div class="new-booking-form">
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
-
-
-
 <%= simple_form_for [@bathroom, @booking] do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -12,9 +13,9 @@
 <%= f.input :duration %>
 </div>
 
-<div class="form-actions">
+<div class="form-actions btn btn-block" id="new-booking-submit-button">
 <%= f.button :submit %>
 </div>
 <% end %>
-
+</div>
 
