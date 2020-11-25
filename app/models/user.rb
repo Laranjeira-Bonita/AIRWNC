@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :bathrooms
   has_many :bookings
+  has_many :deals, through: :bathrooms, source: :bookings
   has_many :rented_bathrooms, through: :bookings, source: :bathroom
   validates :first_name, :last_name, :cpf, :phone_number, presence: true
   validates :cpf, format: { with: /\d{3}\.\d{3}\.\d{3}-\d{2}/,
