@@ -1,10 +1,19 @@
 <h1 class="show-title">Bathroom show</h1>
 
+
 <div class="show-wrapper">
-   <% if @bathroom.photos.empty? %>
+  <% if @bathroom.photos.empty? %>
     <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
   <% else %>
-    <%= cl_image_tag @bathroom.photos.last.key, class: "bathroom-photo", height: 240, width: 270 %>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% @bathroom.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= cl_image_tag photo.key, class: "d-block bathroom-profile" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
   <div class="show-details">
     <div class="show-description">
@@ -20,6 +29,9 @@
       <% if @bathroom.price  %>
       <%= "U" + number_to_currency(@bathroom.price) %>
       <% end %>
+    </div>
+    <div class="show-owner">
+      <p>Bathroom owner: <%= link_to "#{@bathroom.owner.first_name} #{@bathroom.owner.last_name}", user_profile_path(@bathroom.owner) %></p>    
     </div>
   </div>
 </div>
