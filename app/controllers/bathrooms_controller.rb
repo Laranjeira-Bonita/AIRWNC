@@ -4,6 +4,14 @@ class BathroomsController < ApplicationController
 
   def index
     @bathrooms = Bathroom.all
+    # the `geocoded` scope filters only bathrooms with coordinates (latitude & longitude)
+      @markers = @bathrooms.geocoded.map do |bathroom|
+      {
+        lat: bathroom.latitude,
+        lng: bathroom.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bathroom: bathroom })
+      }
+    end
   end
 
   def show
