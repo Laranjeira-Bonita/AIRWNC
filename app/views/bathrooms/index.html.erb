@@ -5,12 +5,11 @@
   <% @bathrooms.each do |bathroom| %>
   <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>  
     <div class="bathroom-card col-6 col-lg-12">
-      <div class="bathroom-photo">
-      </div>
+      <%= cl_image_tag bathroom.photos.first.key, class: "bathroom-photo" %>
       <div class="bathroom-details">
         <div class="bathroom-description">
           <p class="bath-desc">
-            <%= bathroom.description %>
+            <%= bathroom.title %>
           </p>
           <p class="line-div">________________________________________________</p>
           <br>
