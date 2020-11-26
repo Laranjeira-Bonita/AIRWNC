@@ -9,8 +9,8 @@
           <%= cl_image_tag bathroom.photos.first.key, size: '100x100', class:'bathroom-main-image', crop:'fill' %>
         </div>
         <div class="my-bathroom-card-content flex-grow-1 d-flex flex-column">
-          <span class="my-bathroom-card-content-description">
-            <%= link_to bathroom.description, bathroom_wc_bookings_path(bathroom), class:'no-decoration-link' %>
+          <span class="my-bathroom-card-content-title">
+            <%= link_to bathroom.title, bathroom_wc_bookings_path(bathroom), class:'no-decoration-link' %>
           </span>
           <span class="my-bathroom-card-content-bookings-count">
             <%= bathroom.bookings.count%> bookings

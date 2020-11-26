@@ -1,6 +1,6 @@
 <div class="container">
   <div class="wc-bookings-title">
-    <h1>List of bookings for bathroom <%= @bathroom.description %></h1>
+    <h1>List of bookings for <%= @bathroom.title %></h1>
   </div>
   <div class="wc-bookings-cards">
     <% @wc_bookings.order(:date).reverse.each do |booking| %>
@@ -25,6 +25,7 @@
             <span class="wc-booking-card-price-value"><%= booking.bathroom.price %></span>
           </div>
           <div class="wc-booking-card-status">
+
             <% if booking.date.time + booking.duration < Time.now %>
               <div class="wc-booking-card-status-icon done">
                 <i class="fas fa-check"></i>
