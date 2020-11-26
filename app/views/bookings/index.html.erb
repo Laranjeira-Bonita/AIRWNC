@@ -5,7 +5,8 @@
 
 <% @bookings.each do |booking| %>
   <div class="booking-card">
-    <div class='booking-image'>
+    <% image =  booking.bathroom.photos.attached? ? cl_image_path(booking.bathroom.photos.first.key) : asset_path('bathroom.jpg')  %>
+    <div class='booking-image' style="background-image: url(<%= image %>")>
     </div>
     <div class="container booking-details">
       <div class="booking-detail">
