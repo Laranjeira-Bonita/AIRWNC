@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-
   def owner_bookings
     # action type index to display a list of all bookings of all bathrooms of that owner
     @owner = current_user
