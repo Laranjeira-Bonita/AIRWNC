@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   def owner_bookings
     # action type index to display a list of all bookings of all bathrooms of that owner
     @owner = current_user
+    @bathrooms = current_user.bathrooms
     @owner_bookings = current_user.deals
   end
 
