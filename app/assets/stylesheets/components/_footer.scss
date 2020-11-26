@@ -1,0 +1,38 @@
+footer {
+  background:#F2EDEB;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* footer social icons */
+.social-network {
+  list-style: none;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.social-network a {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.social-network i:hover,
+.triggeredHover {
+  transform: rotate(360deg);
+  transition: 1s;
+}
