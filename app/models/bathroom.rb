@@ -6,4 +6,6 @@ class Bathroom < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :address, presence: true, length: { maximum: 95 }
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
