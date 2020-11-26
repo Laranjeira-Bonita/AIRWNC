@@ -1,8 +1,26 @@
 <div class="container">
-  <h1>List of bookings for bathroom <%= @bathroom.id %></h1>
-  <ul>
-    <% @wc_bookings.each do |booking| %>
-      <li><%= booking.client.first_name %> | <%= booking.date %> | <%= booking.duration %> minutes</li>
+  <div class="wc-bookings-title">
+    <h1>List of bookings for bathroom <%= @bathroom.description %></h1>
+  </div>
+  <div class="wc-bookings-cards">
+    <% @wc_bookings.order(:date).reverse.each do |booking| %>
+      <div class="wc-booking-card d-flex align-items-center">
+        <div class="wc-booking-card-client-avatar">
+          <%= cl_image_tag booking.client.photo.key, class: 'avatar-booking-client' %>
+        </div>
+        <div class="wc-booking-card-infos d-flex flex-column">
+          <span class="wc-booking-card-infos-client">
+            <strong>Client Name:</strong> <%= booking.client.first_name %> <%= booking.client.last_name %>
+          </span>
+          <span class="wc-booking-card-infos-date">
+            <strong>Date and time of booking:</strong> <%= booking.date %>
+          </span>
+          <span class="wc-booing-card-infos-duration">
+            <strong>Duration of booking:</strong> <%= booking.duration %> minutes
+          </span>
+        </div>
+      </div>
     <% end %>
- </ul>
+
+  </div>
 </div>
