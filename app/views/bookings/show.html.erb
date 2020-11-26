@@ -38,7 +38,18 @@
 </div>
 <div class="booking-card">
 <%= @booking.review.rating %>
-
-
-<%= @booking.review.content %>
 </div>
+
+<div class="booking-details">
+  <div><h3>Your opinion</h3></div>
+  <div>
+    <% if @booking.review.present? %>
+      <%= @booking.review.rating %>
+      <% @booking.review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div><%= @booking.review.content if @booking.review.present? %></div>
+</div>
+

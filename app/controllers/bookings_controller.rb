@@ -9,11 +9,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @bathroom = Bathroom.find(params[:bathroom_id])
     @booking = Booking.new(booking_params)
+    @bathroom = Bathroom.find(params[:bathroom_id])
     @booking.client = current_user
     @booking.bathroom = @bathroom
-    if @booking.save
+    if Time.now <= @booking.date && @booking.save
       redirect_to booking_path(@booking), notice: 'Ordered successfully.'
     else
       render :new
