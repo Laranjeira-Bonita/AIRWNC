@@ -50,8 +50,6 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.bathroom-cr-photo
-
 .bathroom-price {
   position: absolute;
   right: 5%;
@@ -131,8 +129,12 @@
 
 .show-owner {
   position: absolute;
-  left: 65%;
-  top: 90%;
+  left: 55%;
+  top: 88%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px 50px;
+  border-radius: 15px;
+  width: 500px;
 }
 
 .bath-form {

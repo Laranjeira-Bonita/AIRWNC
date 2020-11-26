@@ -59,24 +59,38 @@ u6.photo.attach(io: file6, filename: 'user6.png', content_type: 'image/png')
 # Bathroom seeds
 b1 = Bathroom.new(price: 4, description: "Sempre limpo, espaçoso e com amenidades", address: "Rua Purpurina, 277, São Paulo")
 b1.owner = u6
-b1.save
+b1.save!
+url1 = 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80'
+url2 = 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+b1.photos.attach(io: URI.open(url1), filename: 'bathroom1.png', content_type: 'image/png')
+b1.photos.attach(io: URI.open(url2), filename: 'bathroom2.png', content_type: 'image/png')
 
 b2 = Bathroom.new(price: 4.5, description: "Faça suas necessidades com vista para o mar", address: "Rua Cayowaa, 1575, São Paulo")
 b2.owner = u6
 b2.save
+b2.photos.attach(io: URI.open(url1), filename: 'bathroom3.png', content_type: 'image/png')
+b2.photos.attach(io: URI.open(url2), filename: 'bathroom4.png', content_type: 'image/png')
 
 b3 = Bathroom.new(price: 4.1, description: "Estilo vintage", address: "Rua Harmonia, 402, São Paulo")
 b3.owner = u5
 b3.save
+b3.photos.attach(io: URI.open(url1), filename: 'bathroom5.png', content_type: 'image/png')
+b3.photos.attach(io: URI.open(url2), filename: 'bathroom6.png', content_type: 'image/png')
 
 b4 = Bathroom.new(price: 3.9, description: "Ambiente agradável", address: "Rua Natingui, 515, São Paulo")
 b4.owner = u4
 b4.save
+b4.photos.attach(io: URI.open(url1), filename: 'bathroom7.png', content_type: 'image/png')
+b4.photos.attach(io: URI.open(url2), filename: 'bathroom8.png', content_type: 'image/png')
 
 b5 = Bathroom.new(price: 4.8, description: "Você não precisa mais do que isso", address: "Avenida Dr. Arnaldo, 1113, São Paulo")
 b5.owner = u1
 b5.save
+b5.photos.attach(io: URI.open(url1), filename: 'bathroom9.png', content_type: 'image/png')
+b5.photos.attach(io: URI.open(url2), filename: 'bathroom10.png', content_type: 'image/png')
 
 b6 = Bathroom.create(price: 20, description: "Banheiro comum e limpo", address: "Rua Ubatuba, 206, São Paulo")
 b6.owner = u2
 b6.save
+b6.photos.attach(io: URI.open(url1), filename: 'bathroom11.png', content_type: 'image/png')
+b6.photos.attach(io: URI.open(url2), filename: 'bathroom12.png', content_type: 'image/png')
