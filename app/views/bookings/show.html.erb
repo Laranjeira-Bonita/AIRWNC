@@ -2,18 +2,7 @@
 <h1>Booking No.<%= @booking.id%>, here!</h1>
 </div>
 
-
-
-
-
-
-
 <div class="booking-card">
-  
-    
-    
-    
-    
     <% image =  @booking.bathroom.respond_to?(:photos) ? @booking.bathroom.photos.first.key : asset_path('bathroom.jpg')  %>
     <div class='booking-image' style="background-image: url(<%= image %>)">
     </div>
