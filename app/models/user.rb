@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :phone_number, format: { with: /\(\d{2}\)\d{4,5}-\d{4}/,
   message: "only accepts format (XX)XXXXX-XXXX" }
   validates :cpf, uniqueness: true
+  has_one_attached :photo
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

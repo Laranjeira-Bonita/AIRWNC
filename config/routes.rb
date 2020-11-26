@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :bathrooms do
     resources :bookings, only:[:new, :create]
-    get "/bookings", to: "dashboard#wc_bookings"
+    get "/bookings", to: "dashboard#wc_bookings", as: "wc_bookings"
   end
   
   resources :bookings, only:[:index, :show, :destroy]

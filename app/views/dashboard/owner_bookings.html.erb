@@ -1,13 +1,8 @@
 <div class="container">
   <h1>All bookings for owner <%= @owner.first_name.downcase.capitalize %></h1>
   <ul>
-  	<% @owner_bookings.each do |booking| %>
-		  <li>
-				<%= booking.bathroom.description %> | 
-				<%= booking.client.first_name %> | 
-				<%= booking.date %> | 
-				<%= booking.duration %> 
-		  </li>
-		<% end %>
-	</ul>
+    <% @bathrooms.each do |bathroom| %>
+      <li><%= link_to bathroom.description, bathroom_wc_bookings_path(bathroom) %> | <%= bathroom.bookings.count%> bookings</li>
+    <% end %>
+  </ul>
 </div>
