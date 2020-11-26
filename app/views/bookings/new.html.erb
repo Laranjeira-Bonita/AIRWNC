@@ -1,6 +1,3 @@
-
-
-
 <div class="new-booking-form">
 <h1>Make your booking here</h1>
 <%= simple_form_for [@bathroom, @booking] do |f| %>
@@ -9,7 +6,7 @@
 
 <div class="form-inputs">
 <%= f.input :date %>
-<%= f.input :duration %>
+<%= f.input :duration, collection: [15, 20, 25, 30, 35, 40, 45] %>
 </div>
 
 <div class="form-actions btn btn-block" id="new-booking-submit-button">
@@ -17,4 +14,3 @@
 </div>
 <% end %>
 </div>
-
