@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
  
     def new
       @review = Review.new
-      @booking = Booking.find(params[:booking_id])
+      @booking = Booking.find(params[:id])
     end
   
     def create
@@ -23,5 +23,7 @@ class ReviewsController < ApplicationController
     end
   
     private
-
+  def review_params
+    params.require(:review).permit(:rating, :content)
+  end
 end

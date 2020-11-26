@@ -3,7 +3,7 @@
 </div>
 
 <div class="booking-card">
-    <% image =  @booking.bathroom.respond_to?(:photos) ? @booking.bathroom.photos.first.key : asset_path('bathroom.jpg')  %>
+    <% image =  @booking.bathroom.photos.attached? ? cl_image_path(@booking.bathroom.photos.first.key) : asset_path('bathroom.jpg')  %>
     <div class='booking-image' style="background-image: url(<%= image %>)">
     </div>
 
@@ -35,4 +35,10 @@
 
     
     
+</div>
+<div class="booking-card">
+<%= @booking.review.rating %>
+<% raise %>
+
+<%= @booking.review.content %>
 </div>
