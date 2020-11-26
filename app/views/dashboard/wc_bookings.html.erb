@@ -8,16 +8,35 @@
         <div class="wc-booking-card-client-avatar">
           <%= cl_image_tag booking.client.photo.key, class: 'avatar-booking-client' %>
         </div>
-        <div class="wc-booking-card-infos d-flex flex-column">
+        <div class="wc-booking-card-infos d-flex flex-column flex-grow-1">
           <span class="wc-booking-card-infos-client">
-            <strong>Client Name:</strong> <%= booking.client.first_name %> <%= booking.client.last_name %>
+            <strong>Client Name:</strong> <%= booking.client.first_name.downcase.capitalize %> <%= booking.client.last_name.downcase.capitalize %>
           </span>
           <span class="wc-booking-card-infos-date">
             <strong>Date and time of booking:</strong> <%= booking.date %>
           </span>
-          <span class="wc-booing-card-infos-duration">
+          <span class="wc-booking-card-infos-duration">
             <strong>Duration of booking:</strong> <%= booking.duration %> minutes
           </span>
+        </div>
+        <div class="wc-booking-card-price-and-status d-flex flex-column align-items-center">
+          <div class="wc-booking-card-price">
+            <span class="wc-booking-card-price-currency">R$</span>
+            <span class="wc-booking-card-price-value"><%= booking.bathroom.price %></span>
+          </div>
+          <div class="wc-booking-card-status">
+            <% if booking.date.time + booking.duration < Time.now %>
+              <div class="wc-booking-card-status-icon done">
+                <i class="fas fa-check"></i>
+              </div>
+              <p>Done</p>
+            <% else %>
+              <div class="wc-booking-card-status-icon still-to-come">
+                <i class="far fa-calendar-alt"></i>
+              </div>
+              <p>Still to come</p>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
