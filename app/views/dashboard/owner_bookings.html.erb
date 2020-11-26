@@ -1,8 +1,31 @@
 <div class="container">
-  <h1>All bookings for owner <%= @owner.first_name.downcase.capitalize %></h1>
-  <ul>
-    <% @bathrooms.each do |bathroom| %>
-      <li><%= link_to bathroom.description, bathroom_wc_bookings_path(bathroom) %> | <%= bathroom.bookings.count%> bookings</li>
-    <% end %>
-  </ul>
+  <div class="title-my-bathrooms">
+    <h1>My bathrooms</h1>
+  </div>
+  <div class="my-bathroom-cards">
+    <ul class="list-unstyled">
+      <% @bathrooms.each do |bathroom| %>
+        <div class="my-bathroom-card d-flex">
+          <div class="my-bathroom-card-img">
+            <%#= cl_image_tag bathroom.photos.first.key %>
+            <%= image_tag 'bathroom.jpg', size: '100', class:'bathroom-main-image'%>
+          </div>
+          <div class="my-bathroom-card-content flex-grow-1">
+            <li class="d-flex flex-column">
+              <span class="my-bathroom-card-content-description">
+                <%= link_to bathroom.description, bathroom_wc_bookings_path(bathroom), class:'no-decoration-link' %>
+              </span>
+              <span class="my-bathroom-card-content-bookings-count">
+                <%= bathroom.bookings.count%> bookings
+              </span>
+            </li>
+          </div>
+          <div class="my-bathroom-card-price">
+            <span class="my-bathroom-card-price-currency">R$</span>
+            <span class="my-bathroom-card-price-value"><%= bathroom.price %></span>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
