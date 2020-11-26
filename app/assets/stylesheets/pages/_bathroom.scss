@@ -95,12 +95,13 @@
   display: flex;
   position: relative;
   margin-top: 40px;
+  margin-bottom: 50px;
 }
 
 .show-description {
   position: absolute;
   left: 55%;
-  top: 7%;
+  top: 5%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
@@ -110,7 +111,7 @@
 .show-address {
   position: absolute;
   left: 55%;
-  top: 34%;
+  top: 30%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
@@ -120,7 +121,7 @@
 .show-price {
   position: absolute;
   left: 55%;
-  top: 61%;
+  top: 55%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
@@ -130,11 +131,16 @@
 .show-owner {
   position: absolute;
   left: 55%;
-  top: 88%;
+  top: 80%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
   width: 500px;
+  display: flex;
+  align-items: center;
+  p{
+    margin-bottom: 0px;
+  }
 }
 
 .bath-form {
@@ -157,4 +163,8 @@
 .btn-book-this:hover {
   background-color: #17c3b2b2;
   transition: 0.6s;
+}
+
+.carousel-control-prev {
+  margin-left: 190px;
 }
