@@ -2,15 +2,16 @@
 <h1>Booking No.<%= @booking.id%>, here!</h1>
 </div>
 
-
 <div class="booking-card">
-  
-    <div class='booking-image'>
+    <% image =  @booking.bathroom.photos.attached? ? cl_image_path(@booking.bathroom.photos.first.key) : asset_path('bathroom.jpg')  %>
+    <div class='booking-image' style="background-image: url(<%= image %>)">
     </div>
-    <div class="container booking-details">
+
+    <div class="booking-info">
+    <div class="booking-details">
       <div class="booking-detail">
-      <div>Date: </div>
-      <div><%= @booking.date.to_s.first(10) %></div>
+        <div>Date: </div>
+        <div><%= @booking.date.to_s.first(10) %></div>
       </div>
       <div class="booking-detail">
         <div>Check-in: </div>
@@ -20,13 +21,24 @@
         <div>Duration: </div>
         <div><%= @booking.duration %> min</div>
       </div>
-      <div class="booking-detail">
+    </div>
+      <div class="booking-detail btn" id="booking-buttons">
         <div class="btn btn-success"><%= link_to 'Edit', booking_path(@booking), data: { confirm: 'You can cancel the order and make another one or call 911 to ask tecnic support.' } %></div>
         <% if Time.now < @booking.date %>
-        <div class="btn btn-dark"><%= link_to 'Delete', booking_path(@booking), data: { confirm: 'You can\'t cancel the order during order time' } %></div>
+          <div class="btn btn-dark"><%= link_to 'Delete', booking_path(@booking), data: { confirm: 'You can\'t cancel the order during order time' } %></div>
         <% else %>
-        <div class="btn btn-success"><%= link_to 'Delete', @booking, method: :delete, data: { confirm: 'Delete?' } %></div>
+          <div class="btn btn-success"><%= link_to 'Delete', @booking, method: :delete, data: { confirm: 'Delete?' } %></div>
         <%end%>
-
+        <div class="btn btn-success"><%= link_to 'Back', bookings_path %></div>
       </div>
     </div>
+
+    
+    
+</div>
+<div class="booking-card">
+<%= @booking.review.rating %>
+<% raise %>
+
+<%= @booking.review.content %>
+</div>

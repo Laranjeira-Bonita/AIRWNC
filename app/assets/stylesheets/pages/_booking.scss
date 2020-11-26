@@ -1,3 +1,8 @@
+.bookings-title {
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+
 .booking-card {
     display: flex;
     width: 90vw;
@@ -14,31 +19,44 @@
     justify-content: space-between;
     padding-right: 15vw;
     padding-left: 15vw;
+    font-size: 20px;
+    font-family: Arial;   
+}
+.booking-info {
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
 }
 
 .booking-image {
     width: 30vw;
     background-size: cover;
     border-radius: 10px;
-    background-image: asset-url('bathroom.jpg');
+
+
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .booking-detail {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   padding: 25px 30px 25px 50px;
 }
+
+
 .bookings-title {
     margin-left: 20vw;
 }
-
-.booking-card .btn {
-    width: 5vw;
+#booking-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+.booking-detail .btn {
+  width: 10vw;
+  background-color: #17C3B2;
+  border: none;
+  a {
+    color: white;
+  }
 }
 
 .booking-card .btn:hover {
@@ -57,12 +75,14 @@
 }
 
 .new-booking-form .form-group {
-  padding-top: 10vh;
+  padding-top: 5vh;
 }
 
 .new-booking-form .form-control{
     height: 7vh;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+
 }
 
 .new-booking-form label {
@@ -73,7 +93,7 @@
 
 #new-booking-submit-button {
   background-color: #17C3B2;
-  margin-top: 15vh;
+  margin-top: 12vh;
   height: 7vh;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
