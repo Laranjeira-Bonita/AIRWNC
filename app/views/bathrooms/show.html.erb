@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <div class="show-owner">
-      <p>Bathroom owner: <%= link_to "#{@bathroom.owner.first_name} #{@bathroom.owner.last_name}", user_profile_path(@bathroom.owner) %></p>    
+      <p>Bathroom owner: <%= link_to "#{@bathroom.owner.first_name.capitalize} #{@bathroom.owner.last_name.capitalize}", user_profile_path(@bathroom.owner) %></p>    
     </div>
   </div>
 </div>

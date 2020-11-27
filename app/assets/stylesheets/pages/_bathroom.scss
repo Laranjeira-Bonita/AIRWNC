@@ -91,15 +91,21 @@
 
 .show-wrapper {
   display: flex;
-  position: relative;
   margin-top: 40px;
   margin-bottom: 50px;
 }
 
+.show-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 18%;
+  top: 10%;
+}
+
 .show-description {
-  position: absolute;
-  left: 55%;
-  top: 5%;
+  display: inline-block;
+  overflow-wrap: break-word;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
@@ -107,32 +113,26 @@
 }
 
 .show-address {
-  position: absolute;
-  left: 55%;
-  top: 30%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
+  margin-top: 25px;
   width: 500px;
 }
 
 .show-price {
-  position: absolute;
-  left: 55%;
-  top: 55%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(50, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
+  margin-top: 25px;
   width: 500px;
 }
 
 .show-owner {
-  position: absolute;
-  left: 55%;
-  top: 80%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
+  margin-top: 25px;
   width: 500px;
   display: flex;
   align-items: center;
