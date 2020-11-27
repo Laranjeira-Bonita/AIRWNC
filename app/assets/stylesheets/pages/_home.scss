@@ -1,4 +1,6 @@
 // Specific CSS for your home-page
 .banner {
-background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1584016265431-c1d87c07da3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1388&q=80');
+background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url('https://images.unsplash.com/photo-1584016265431-c1d87c07da3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1388&q=80');
+display: flex;
 }
