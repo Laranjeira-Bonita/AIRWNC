@@ -31,23 +31,21 @@
         <%end%>
         <div class="btn btn-success"><%= link_to 'Back', bookings_path %></div>
       </div>
-    </div>
-
-    
-    
-</div>
-<div class="booking-card">
-<%= @booking.review.rating %>
+    </div>    
 </div>
 
 <div class="booking-details">
-  <div><h3>Your opinion</h3></div>
   <div>
     <% if @booking.review.present? %>
+     <div><h3>Your opinion</h3></div>
       <%= @booking.review.rating %>
       <% @booking.review.rating.times do %>
         <i class="fas fa-star"></i>
       <% end %>
+    <% else %>
+      <div class="btn btn-success">
+        <%= link_to 'Leave your opinion here',  reviews_new_path(@booking) %>
+      </div>
     <% end %>
   </div>
   <div><%= @booking.review.content if @booking.review.present? %></div>
