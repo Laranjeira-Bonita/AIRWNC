@@ -1,7 +1,9 @@
+
+<br>
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-6">
-      <h1 class="index-title">Bathrooms:</h1>
+    <h1 class="index-title">Bathrooms:</h1>
       <div class="bathroom-wrapper">
         <% @bathrooms.each do |bathroom| %>
         <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>  
