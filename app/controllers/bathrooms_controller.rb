@@ -9,7 +9,8 @@ class BathroomsController < ApplicationController
       {
         lat: bathroom.latitude,
         lng: bathroom.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { bathroom: bathroom })
+        infoWindow: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
+        image_url: helpers.asset_url("wc.png")
       }
     end
   end
