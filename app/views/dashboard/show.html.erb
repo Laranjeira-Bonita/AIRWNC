@@ -25,26 +25,26 @@
 		<% end %>
 	</div>
 	<div class="profile-numbers d-flex justify-content-around">
-		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border">
+		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border d-flex flex-column justify-content-top">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.rented_bathrooms.count %></p>
 			<% if @user == current_user %>
-			  <%= link_to "Bookings", bookings_path, class: "profile-numbers-p profile-numbers-description" %>
+			  <%= link_to "Bookings", bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
 			<% else %>
 			  <p class="profile-numbers-p profile-numbers-description">Bookings</p>
 			<% end %>
 		</div>
-		<div class="profile-numbers-container bathrooms-owned profile-numbers-div-border">
+		<div class="profile-numbers-container bathrooms-owned profile-numbers-div-border d-flex flex-column justify-content-center">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.bathrooms.count %></p>
 			<% if @user == current_user %>
-			  <%= link_to "Bathrooms owned", owner_bookings_path, class: "profile-numbers-p profile-numbers-description" %>
+			  <%= link_to "Bathrooms owned", owner_bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
 			<% else %>
 			  <p class="profile-numbers-p profile-numbers-description">Bathrooms owned</p>
 			<% end %>
 		</div>
-		<div class="profile-numbers-container deals-closed">
+		<div class="profile-numbers-container deals-closed d-flex flex-column justify-content-center">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.deals.count %></p>
 			<% if @user == current_user %>
-			  <%= link_to "Bathrooms rented", owner_bookings_path, class: "profile-numbers-p profile-numbers-description" %>
+			  <%= link_to "Bathrooms rented", owner_bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
 			<% else %>
 			  <p class="profile-numbers-p profile-numbers-description">Bathrooms rented</p>
 			<% end %>
