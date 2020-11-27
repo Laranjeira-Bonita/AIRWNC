@@ -2,7 +2,9 @@ class ReviewsController < ApplicationController
  
     def new
       @review = Review.new
-      @booking = Booking.find(params[:id])
+      raise
+      @booking = Booking.find(params[:format])
+      
     end
   
     def create
