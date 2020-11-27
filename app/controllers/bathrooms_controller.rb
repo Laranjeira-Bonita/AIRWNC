@@ -47,7 +47,7 @@ class BathroomsController < ApplicationController
   private
 
   def bathroom_params
-    params.require(:bathroom).permit(:description, :address, :price, :user_id, photos: [])
+    params.require(:bathroom).permit(:description, :title, :address, :price, :user_id, photos: [])
   end
 
   def find_bathroom
