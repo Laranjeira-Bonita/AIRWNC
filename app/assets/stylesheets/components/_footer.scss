@@ -1,15 +1,17 @@
 footer {
   background:#F2EDEB;
-  color: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  color: #1D3557;
+  text-align: center;
+}
+
+.footer-box {
+  display: flex;
 }
 
 /* footer social icons */
 .social-network {
   list-style: none;
   margin-left: 0 !important;
-  padding: 0;
 }
 
 .social-network li {
@@ -18,11 +20,10 @@ footer {
 }
 
 .social-network a {
-  background-color: black;
+  background-color: #1D3557;
   color: white;
   display: inline-block;
   position: relative;
-  text-align: center;
   margin: 0 auto 0 auto;
   border-radius: 50%;
   width: 30px;
