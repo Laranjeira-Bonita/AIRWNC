@@ -6,7 +6,11 @@
     <% @wc_bookings.order(:date).reverse.each do |booking| %>
       <div class="wc-booking-card d-flex align-items-center">
         <div class="wc-booking-card-client-avatar">
-          <%= cl_image_tag booking.client.photo.key, class: 'avatar-booking-client' %>
+          <% if booking.client.photo.attached? %>
+            <%= cl_image_tag booking.client.photo.key, class: 'avatar-booking-client' %>
+          <% else %>
+            <%= image_tag "https://increasify.com.au/wp-content/uploads/2016/08/default-image.png", class: 'avatar-booking-client' %>
+          <% end %>
         </div>
         <div class="wc-booking-card-infos d-flex flex-column flex-grow-1">
           <span class="wc-booking-card-infos-client">

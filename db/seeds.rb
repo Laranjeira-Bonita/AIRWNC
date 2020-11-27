@@ -120,4 +120,3 @@ bk3.save!
 rv1 = Review.new(rating: 2, content: 'O banheiro estava um pouco sujo e não tinha papel higiênico')
 rv1.booking = bk3
 rv1.save!
-
