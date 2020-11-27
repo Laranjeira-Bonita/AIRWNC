@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
  
     def new
       @review = Review.new
-      raise
       @booking = Booking.find(params[:format])
       
     end
