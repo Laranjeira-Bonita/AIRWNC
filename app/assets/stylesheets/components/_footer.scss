@@ -2,21 +2,34 @@ footer {
   background:#F2EDEB;
   color: #1D3557;
   text-align: center;
+  padding: 10px 0px;
 }
 
 .footer-box {
   display: flex;
+  align-items: center;
 }
 
 /* footer social icons */
-.social-network {
-  list-style: none;
-  margin-left: 0 !important;
+#social {
+  flex: 1 1 auto;
+}
+
+footer ul {
+  margin: 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+#copy {
+  flex: 3 1 auto;
 }
 
 .social-network li {
+  padding-right: 10px;
   display: inline;
-  margin: 0 5px;
 }
 
 .social-network a {
@@ -24,7 +37,6 @@ footer {
   color: white;
   display: inline-block;
   position: relative;
-  margin: 0 auto 0 auto;
   border-radius: 50%;
   width: 30px;
   height: 30px;
