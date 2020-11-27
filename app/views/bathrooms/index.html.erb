@@ -7,7 +7,7 @@
         <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>
           <div class="bathroom-card">
             <% if bathroom.photos.first.nil? %>
-              <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-photo" %>
+              <%= image_tag "https://increasify.com.au/wp-content/uploads/2016/08/default-image.png", alt: "bathroom", class: "bathroom-photo" %>
             <% else %>
               <%= cl_image_tag bathroom.photos.first.key, class: "bathroom-photo" %>
             <% end %>
