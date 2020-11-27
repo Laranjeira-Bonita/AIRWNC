@@ -6,7 +6,12 @@
     <% @bathrooms.each do |bathroom| %>
       <div class="my-bathroom-card d-flex">
         <div class="my-bathroom-card-img">
-          <%= cl_image_tag bathroom.photos.first.key, size: '100x100', class:'bathroom-main-image', crop:'fill' %>
+          <% if bathroom.photos.attached? %>
+            <%= cl_image_tag bathroom.photos.first.key, size: '100x100', class:'bathroom-main-image', crop:'fill' %>
+          <% else %>
+            <%= image_tag 'https://increasify.com.au/wp-content/uploads/2016/08/default-image.png', size: '100x100', class:'bathroom-main-image', crop:'fill' %>  
+          <% end %>
+
         </div>
         <div class="my-bathroom-card-content flex-grow-1 d-flex flex-column">
           <span class="my-bathroom-card-content-title">
