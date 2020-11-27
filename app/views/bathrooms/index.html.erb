@@ -3,9 +3,13 @@
 
 <div class="bathroom-wrapper">
   <% @bathrooms.each do |bathroom| %>
-  <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>  
+  <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>
     <div class="bathroom-card col-6 col-lg-12">
-      <%= cl_image_tag bathroom.photos.first.key, class: "bathroom-photo" %>
+      <% if bathroom.photos.first.nil? %>
+        <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-photo" %>
+      <% else %>
+        <%= cl_image_tag bathroom.photos.first.key, class: "bathroom-photo" %>
+      <% end %>
       <div class="bathroom-details">
         <div class="bathroom-description">
           <p class="bath-desc">
