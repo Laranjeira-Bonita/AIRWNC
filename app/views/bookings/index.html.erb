@@ -22,9 +22,26 @@
         <div><%= booking.duration %> min</div>
       </div>
       <div class="booking-detail">
+       <% if booking.review.present? %>
+      <%= booking.review.rating %>
+      <% booking.review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - booking.review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      <span><%= booking.review.content %></span>
+    
+    <% end %>
+      </div>
+      
+      <div class="booking-detail">
         <div type="button" class="btn btn-success"><%= link_to 'details', booking_path(booking) %></div>
         <div type="button" class="btn btn-success"><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Delete?' } %></div>
+         <% if !(booking.review.present?) %>
+           <div type="button" class="btn btn-success"><%= link_to 'Your opinion',  reviews_new_path(booking) %></div>
+         <% end %>
       </div>
-    </div>
+     </div>
   </div>
 <% end %>

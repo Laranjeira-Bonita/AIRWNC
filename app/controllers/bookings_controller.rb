@@ -1,3 +1,4 @@
+require 'date'
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(client: current_user)
@@ -13,7 +14,7 @@ class BookingsController < ApplicationController
     @bathroom = Bathroom.find(params[:bathroom_id])
     @booking.client = current_user
     @booking.bathroom = @bathroom
-    if Time.now <= @booking.date && @booking.save
+    if DateTime.now <= @booking.date.change(offset: '-03:00') && @booking.save
       redirect_to booking_path(@booking), notice: 'Ordered successfully.'
     else
       render :new
