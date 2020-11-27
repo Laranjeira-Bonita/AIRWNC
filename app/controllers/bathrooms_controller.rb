@@ -1,6 +1,6 @@
 class BathroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :find_bathroom, only: [:edit, :update, :show, :destroy]
+  before_action :find_bathroom, only: %i[edit update show destroy]
 
   def index
     @bathrooms = Bathroom.all
@@ -9,7 +9,8 @@ class BathroomsController < ApplicationController
       {
         lat: bathroom.latitude,
         lng: bathroom.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { bathroom: bathroom })
+        infoWindow: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
+        image_url: helpers.asset_url("wc.png")
       }
     end
   end
@@ -47,7 +48,7 @@ class BathroomsController < ApplicationController
   private
 
   def bathroom_params
-    params.require(:bathroom).permit(:description, :address, :price, :user_id)
+    params.require(:bathroom).permit(:description, :title, :address, :price, :user_id, photos: [])
   end
 
   def find_bathroom

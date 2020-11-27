@@ -3,11 +3,6 @@
   padding-top: 20px;
 }
 
-.bathroom-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .bathroom-card {
   display: flex;
   height: 290px;
@@ -17,31 +12,24 @@
   color: black;
   transition: 0.45s;
 }
-
 .bathroom-card:hover {
   text-decoration: none;
   filter: brightness(85%);
   transition: 0.45s;
 }
-
 .test:hover {
   text-decoration: none;
 }
-
 .bath-desc {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 0px;
 }
-
 .line-div {
   color: rgba(0, 0, 0, 0.356);
   font-size: 4px;
 }
-
 .bathroom-photo {
-  background-image: asset-url('bathroom.jpg');
-  background-size: cover;
   height: 240px;
   width: 270px;
   margin-top: 25px;
@@ -49,18 +37,15 @@
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-
 .bathroom-price {
   position: absolute;
   right: 5%;
   bottom: 12%;
 }
-
 .price {
   display: flex;
   flex-direction: column;
 }
-
 .bathroom-details {
   display: flex;
   height: 240px;
@@ -77,59 +62,68 @@
     margin-bottom: 0px;
   }
 }
-
 .bathroom-profile {
   width: 350px;
+  height: 500px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-left: 200px;
 }
-
 .show-title {
   margin-left: 200px;
   margin-top: 50px;
 }
-
 .show-wrapper {
   display: flex;
-  position: relative;
   margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.show-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 18%;
+  top: 10%;
 }
 
 .show-description {
-  position: absolute;
-  left: 55%;
-  top: 10%;
+  display: inline-block;
+  overflow-wrap: break-word;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
   width: 500px;
 }
-
 .show-address {
-  position: absolute;
-  left: 55%;
-  top: 40%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
+  margin-top: 25px;
   width: 500px;
 }
-
 .show-price {
-  position: absolute;
-  left: 55%;
-  top: 70%;
+  box-shadow: rgba(50, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px 50px;
+  border-radius: 15px;
+  margin-top: 25px;
+  width: 500px;
+}
+.show-owner {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 50px;
   border-radius: 15px;
+  margin-top: 25px;
   width: 500px;
+  display: flex;
+  align-items: center;
+  p{
+    margin-bottom: 0px;
+  }
 }
-
 .bath-form {
   text-align: center;
 }
-
 .btn-book-this {
   position: absolute;
   top: 16%;
@@ -142,8 +136,10 @@
   background-color: #17c3b248;
   transition: 0.6s;
 }
-
 .btn-book-this:hover {
   background-color: #17c3b2b2;
   transition: 0.6s;
+}
+.carousel-control-prev {
+  margin-left: 190px;
 }

@@ -1,3 +1,8 @@
+.profile-pic{
+  overflow:hidden;
+  width: 200px;
+
+}
 .profile-name{
   font-size: large;
   text-align: center;
@@ -29,9 +34,20 @@
   font-size: 14px;
 }
 
+.profile-numbers-description-link{
+  text-decoration: none;
+  color: rgb(173, 172, 172);
+  font-weight: light;
+  font-size: 14px;
+  &:hover{
+    text-decoration: none;
+    color: #9c839c;
+  }
+}
+
 .profile-numbers-container{
   padding: 5px;
-  width: 90px;
+  width: 93px;
 }
 
 .btn-ghost {

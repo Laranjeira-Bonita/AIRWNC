@@ -1,32 +1,53 @@
 <div class="container d-flex justify-content-center align-items-center flex-column">
-	<h1>My profile</h1>
+	<% if @user == current_user %>
+	  <h1>My profile</h1>
+	<% else %>
+	  <h1><%= @user.first_name.capitalize %>'s profile</h1>
+	<% end %>
 	<div class="profile-pic">
-		<%= cl_image_tag @user.photo.key, class: "avatar-large"%>
+		<%= cl_image_tag @user.photo.key,
+		transformation: [{width: 400, height: 400, gravity: "face", radius: "max", crop: "fill", quality: 80}, {width: 400, crop: "scale"}],
+		class: "avatar-large"%>
 	</div>
 	<div class="user-infos">
 		<p class="profile-name">
 			<strong><%= @user.first_name.downcase.capitalize %> 
 			<%= @user.last_name.downcase.capitalize %></strong>
-			<%= link_to edit_user_registration_path, class: "edit-profile-btn" do %>
+			<% if @user == current_user %>
+			  <%= link_to edit_user_registration_path, class: "edit-profile-btn" do %>
 				<i class='far fa-edit'></i>
+			  <% end %>
 			<% end %>
 		</p>
-
 		<p class="profile-email"><%= @user.email %></p>
-		<p class="d-flex justify-content-center"><%= link_to "Add new offer", new_bathroom_path, class:"btn btn-ghost" %></p>
+		<% if @user == current_user %>
+		  <p class="d-flex justify-content-center"><%= link_to "Add new offer", new_bathroom_path, class:"btn btn-ghost" %></p>
+		<% end %>
 	</div>
 	<div class="profile-numbers d-flex justify-content-around">
-		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border">
+		<div class="profile-numbers-container number-of-rented-bathrooms profile-numbers-div-border d-flex flex-column justify-content-top">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.rented_bathrooms.count %></p>
-			<p class="profile-numbers-p profile-numbers-description">Bookings</p>
+			<% if @user == current_user %>
+			  <%= link_to "Bookings", bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
+			<% else %>
+			  <p class="profile-numbers-p profile-numbers-description">Bookings</p>
+			<% end %>
 		</div>
-		<div class="profile-numbers-container bathrooms-owned profile-numbers-div-border">
+		<div class="profile-numbers-container bathrooms-owned profile-numbers-div-border d-flex flex-column justify-content-center">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.bathrooms.count %></p>
-			<p class="profile-numbers-p profile-numbers-description">Bathrooms owned</p>
+			<% if @user == current_user %>
+			  <%= link_to "Bathrooms owned", owner_bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
+			<% else %>
+			  <p class="profile-numbers-p profile-numbers-description">Bathrooms owned</p>
+			<% end %>
 		</div>
-		<div class="profile-numbers-container deals-closed">
+		<div class="profile-numbers-container deals-closed d-flex flex-column justify-content-center">
 			<p class="profile-numbers-p profile-numbers-bold"><%= @user.deals.count %></p>
-			<p class="profile-numbers-p profile-numbers-description">Bathrooms rented</p>
+			<% if @user == current_user %>
+			  <%= link_to "Bathrooms rented", owner_bookings_path, class: "profile-numbers-p profile-numbers-description-link" %>
+			<% else %>
+			  <p class="profile-numbers-p profile-numbers-description">Bathrooms rented</p>
+			<% end %>
 		</div>
 	</div>
 	

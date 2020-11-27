@@ -1,7 +1,27 @@
-<h1 class="show-title">Bathroom show</h1>
+<h1 class="show-title"><%= @bathroom.title %></h1>
 
 <div class="show-wrapper">
-  <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
+  <% if @bathroom.photos.empty? %>
+    <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-profile" %>
+  <% else %>
+    <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+      <div class="carousel-inner">
+        <% @bathroom.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= cl_image_tag photo.key, class: "d-block bathroom-profile" %>
+          </div>
+        <% end %>
+      </div>
+       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% end %>
   <div class="show-details">
     <div class="show-description">
       <p>Bathroom description:</p>
@@ -17,7 +37,11 @@
       <%= "U" + number_to_currency(@bathroom.price) %>
       <% end %>
     </div>
+    <div class="show-owner">
+      <p>Bathroom owner: <%= link_to "#{@bathroom.owner.first_name.capitalize} #{@bathroom.owner.last_name.capitalize}", user_profile_path(@bathroom.owner) %></p>    
+    </div>
   </div>
 </div>
 
 <%= link_to "Book this bathroom!", new_bathroom_booking_path(@bathroom), class: "btn btn-book-this" %>
+

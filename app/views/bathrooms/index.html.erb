@@ -1,40 +1,45 @@
-<h1 class="index-title">Bathrooms:</h1>
-<br>
-
-<div class="bathroom-wrapper">
-  <% @bathrooms.each do |bathroom| %>
-  <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>  
-    <div class="bathroom-card col-6 col-lg-12">
-      <div class="bathroom-photo">
-      </div>
-      <div class="bathroom-details">
-        <div class="bathroom-description">
-          <p class="bath-desc">
-            <%= bathroom.description %>
-          </p>
-          <p class="line-div">________________________________________________</p>
-          <br>
-        </div>
-        <div class="bathroom-address">
-          <p>Address:</p>
-          <%= bathroom.address %>
-        </div>
-        <br>
-        <br>
-        <div class="bathroom-price">
-          <div class="price">
-            <p>Price:</p>
-            <p><%= "U" + number_to_currency(bathroom.price.to_f) %></p>
+<div id="index-bath-page" class="d-flex ">
+    <div id="all-bathrooms" class="">
+      <h1 class="index-title">Bathrooms:</h1>
+      <br>
+      <div class="bathroom-wrapper">
+        <% @bathrooms.each do |bathroom| %>
+        <%= link_to bathroom_path(bathroom), class: 'test', :action => 'go' do %>
+          <div class="bathroom-card">
+            <% if bathroom.photos.first.nil? %>
+              <%= image_tag "bathroom.jpg", alt: "bathroom", class: "bathroom-photo" %>
+            <% else %>
+              <%= cl_image_tag bathroom.photos.first.key, class: "bathroom-photo" %>
+            <% end %>
+            <div class="bathroom-details">
+              <div class="bathroom-description">
+                <p class="bath-desc">
+                  <%= bathroom.title %>
+                </p>
+                <p class="line-div">________________________________________________</p>
+                <br>
+              </div>
+              <div class="bathroom-address">
+                <p>Address:</p>
+                <%= bathroom.address %>
+              </div>
+              <br>
+              <br>
+              <div class="bathroom-price">
+                <div class="price">
+                  <p>Price:</p>
+                  <p><%= "U" + number_to_currency(bathroom.price.to_f) %></p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-  <% end %>
-</div>
-
-<div id="map"
-  style="width: 100%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div id="map"
+        style="width: 43vw; height: 600px; position: fixed; right: 0px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>

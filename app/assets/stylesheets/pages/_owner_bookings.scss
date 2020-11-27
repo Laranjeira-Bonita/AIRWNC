@@ -1,0 +1,54 @@
+// .my-bathroom-card{
+//   width: 70vw;
+// }
+
+.my-bathroom-card{
+	box-shadow: 0 1px 8px 0 rgba(0,0,0,.12), 0 2px 3px -1px rgba(0,0,0,.2);
+	padding:20px;
+	margin-bottom: 20px;
+	margin-top:20px;
+	border-radius: 5px;
+}
+
+.title-my-bathrooms{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #1d3557;
+}
+
+.bathroom-main-image{
+  border-radius: 5px;
+}
+
+.my-bathroom-card-img{
+  width: 130px;
+}
+
+.no-decoration-link{
+	text-decoration:none;
+	color:#9c839c;
+	font-size: 20px;
+	&:hover{
+		text-decoration:none;
+		color: #4A4A4A;
+	}
+}
+
+.my-bathroom-card-content-bookings-count{
+	color:#6d6b6b;
+}
+
+.my-bathroom-card-content-title{
+	margin-bottom: 10px;
+}
+
+.my-bathroom-card-price-currency{
+	font-weight: bold;
+	font-size:12px;
+	color: #4A4A4A;
+}
+
+.my-bathroom-card-price-value{
+	font-weight: bold;
+	color: #4A4A4A;
+}

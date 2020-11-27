@@ -1,8 +1,26 @@
 <div class="container">
-  <h1>All bookings for owner <%= @owner.first_name.downcase.capitalize %></h1>
-  <ul>
+  <div class="title-my-bathrooms">
+    <h1>My bathrooms</h1>
+  </div>
+  <div class="my-bathroom-cards">
     <% @bathrooms.each do |bathroom| %>
-      <li><%= link_to bathroom.description, bathroom_wc_bookings_path(bathroom) %> | <%= bathroom.bookings.count%> bookings</li>
+      <div class="my-bathroom-card d-flex">
+        <div class="my-bathroom-card-img">
+          <%= cl_image_tag bathroom.photos.first.key, size: '100x100', class:'bathroom-main-image', crop:'fill' %>
+        </div>
+        <div class="my-bathroom-card-content flex-grow-1 d-flex flex-column">
+          <span class="my-bathroom-card-content-title">
+            <%= link_to bathroom.title, bathroom_wc_bookings_path(bathroom), class:'no-decoration-link' %>
+          </span>
+          <span class="my-bathroom-card-content-bookings-count">
+            <%= bathroom.bookings.count%> bookings
+          </span>
+        </div>
+        <div class="my-bathroom-card-price">
+          <span class="my-bathroom-card-price-currency">R$</span>
+          <span class="my-bathroom-card-price-value"><%= bathroom.price %></span>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
