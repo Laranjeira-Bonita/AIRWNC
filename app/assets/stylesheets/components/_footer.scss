@@ -3,11 +3,13 @@ footer {
   color: #1D3557;
   text-align: center;
   padding: 10px 0px;
+	bottom: 0;
 }
 
 .footer-box {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 /* footer social icons */

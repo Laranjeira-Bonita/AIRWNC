@@ -1,7 +1,9 @@
 <div class="container d-flex justify-content-center align-items-center flex-column">
 	<h1>My profile</h1>
 	<div class="profile-pic">
-		<%= cl_image_tag @user.photo.key, class: "avatar-large"%>
+		<%= cl_image_tag @user.photo.key,
+		transformation: [{width: 400, height: 400, gravity: "face", radius: "max", crop: "fill", quality: 80}, {width: 400, crop: "scale"}],
+		class: "avatar-large"%>
 	</div>
 	<div class="user-infos">
 		<p class="profile-name">

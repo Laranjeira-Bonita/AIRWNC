@@ -9,12 +9,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @bathroom = Bathroom.find(params[:bathroom_id])
     @booking = Booking.new(booking_params)
+    @bathroom = Bathroom.find(params[:bathroom_id])
     @booking.client = current_user
     @booking.bathroom = @bathroom
-    if @booking.save
-      redirect_to bathroom_path(@bathroom), notice: 'Ordered successfully.'
+    if Time.now <= @booking.date && @booking.save
+      redirect_to booking_path(@booking), notice: 'Ordered successfully.'
     else
       render :new
     end
@@ -42,9 +42,22 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def reviews_average
+    @bathroom = Bathroom.find(params[:id])
+    @bookings_average = average(@bathroom.bookings)
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :duration)
+    params.require(:booking).permit(:date, :duration, :photo)
+  end
+
+  def average(bookings)
+    all_ratings = []
+    bookings.each { |booking| all_ratings << booking.review.rating }
+    bookings_average = all_ratings.sum.to_f / all_ratings.count
+    return bookings_average
   end
 end
+
